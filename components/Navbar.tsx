@@ -99,7 +99,7 @@ function Navbar({ fixed = true, isMenuOpen, toggleMenu }: NavbarProps) {
       </div>
       <div className="flex items-center ml-auto">
         <a
-          href="https://github.com/Kevin-Kwan"
+          href="https://github.com/Deepakdd1402"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-300 transition-transform ease-in-out duration-200 hover:scale-150 hover:text-blue-500"
@@ -107,7 +107,7 @@ function Navbar({ fixed = true, isMenuOpen, toggleMenu }: NavbarProps) {
           <FaGithub className="h-6 w-6" />
         </a>
         <a
-          href="https://www.linkedin.com/in/kevinkwan3"
+          href="https://www.linkedin.com/in/deepak-dharshan-278b48199"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-300 transition-transform ease-in-out duration-200 hover:scale-150 hover:text-blue-500 ml-4 mr-4"
