@@ -16,7 +16,7 @@ function Skills() {
             Here, you&apos;ll find a comprehensive and ever-growing list of the
             technologies I&apos;ve worked with and used in my projects and my
             professional work. My experience spans across various domains,
-            whether it&apos;s front-end or back-end development, databases, & SAAS
+            whether it&apos;s front-end, databases, & SAAS
             .
           </p>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 mt-3 bg-blue-100 rounded-lg p-4">
