@@ -79,7 +79,7 @@ function Resume({ adobeClientId }: ResumeProps) {
             ? 'It seems like you are on a mobile device! For a better experience, we recommend that you please '
             : 'If you have troubles viewing the PDF, you can '}
           <a
-            href="/documents/Deepak_Dharshan_CV.pdf"
+            href="public/Deepak_Dharshan_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 underline"
