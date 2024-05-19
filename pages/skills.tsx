@@ -88,9 +88,9 @@ function Skills() {
               alt="MATLAB"
             />
             <TechLogo
-              href="https://www.lua.org/"
-              src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Lua-Logo.svg"
-              alt="Lua"
+              href="https://www.zoho.com/creator/"
+              src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/creator-dark.svg"
+              alt="Zoho Creator"
             />
           </div>
         </div>
