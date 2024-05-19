@@ -68,14 +68,14 @@ function Skills() {
               alt="GitLab"
             />
             <TechLogo
-              href="https://www.mongodb.com/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/1280px-MongoDB_Logo.svg.png"
-              alt="MongoDB"
+              href="https://en.wikipedia.org/wiki/Microsoft_Excel"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/120px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png"
+              alt="Microsoft Excel"
             />
             <TechLogo
-              href="https://www.cloudflare.com/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Cloudflare_Logo.svg/2560px-Cloudflare_Logo.svg.png"
-              alt="Cloudflare"
+              href="https://en.wikipedia.org/wiki/Microsoft_Power_BI"
+              src="https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Power_BI_logo.svg/70px-Power_BI_logo.svg.png"
+              alt="Microsoft Power BI"
             />
             <TechLogo
               href="https://react.dev/"
