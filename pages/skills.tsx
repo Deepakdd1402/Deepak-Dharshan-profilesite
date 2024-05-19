@@ -31,24 +31,14 @@ function Skills() {
               alt="Python"
             />
             <TechLogo
-              href="https://www.java.com"
-              src="https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png"
-              alt="Java"
+              href="https://en.wikipedia.org/wiki/C%2B%2B"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/120px-ISO_C%2B%2B_Logo.svg.png"
+              alt="C++"
             />
             <TechLogo
-              href="https://dotnet.microsoft.com/en-us/languages/csharp"
-              src="https://www.cdnlogo.com/logos/c/27/c.svg"
-              alt="C#"
-            />
-            <TechLogo
-              href="https://unity.com/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Unity_2021.svg/1200px-Unity_2021.svg.png"
-              alt="Unity"
-            />
-            <TechLogo
-              href="https://nodejs.org/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/590px-Node.js_logo.svg.png"
-              alt="Node.js"
+              href="https://en.wikipedia.org/wiki/C_(programming_language)"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/The_C_Programming_Language_logo.svg/100px-The_C_Programming_Language_logo.svg.png"
+              alt="C"
             />
             <TechLogo
               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
@@ -56,13 +46,8 @@ function Skills() {
               alt="JavaScript"
             />
             <TechLogo
-              href="https://www.typescriptlang.org/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1024px-Typescript_logo_2020.svg.png"
-              alt="TypeScript"
-            />
-            <TechLogo
               href="https://developer.mozilla.org/en-US/docs/Web/HTML"
-              src="/images/HTML5.png"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/120px-HTML5_logo_and_wordmark.svg.png"
               alt="HTML"
             />
             <TechLogo
@@ -81,11 +66,6 @@ function Skills() {
               href="https://www.gitlab.com/"
               src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/144_Gitlab_logo_logos-512.png"
               alt="GitLab"
-            />
-            <TechLogo
-              href="https://www.mysql.com/"
-              src="https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png"
-              alt="MySQL"
             />
             <TechLogo
               href="https://www.mongodb.com/"
