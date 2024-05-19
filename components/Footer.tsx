@@ -18,7 +18,7 @@ function Footer() {
              Deepak Dharshan
             </a>
           </Link>{' '}
-          using{' '}
+          
           <a
             href="https://nextjs.org/"
             target="_blank"
@@ -27,7 +27,7 @@ function Footer() {
           >
             
           </a>{' '}
-          &{' '}
+          
           <a
             href="https://tailwindcss.com/"
             target="_blank"
