@@ -78,46 +78,9 @@ function Skills() {
               alt="Microsoft Power BI"
             />
             <TechLogo
-              href="https://react.dev/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png"
-              alt="React"
-            />
-            <TechLogo
-              href="https://nextjs.org/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/394px-Nextjs-logo.svg.png"
-              alt="Next.js"
-            />
-            <TechLogo
               href="https://tailwindcss.com/"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Tailwind_CSS_logo.svg/2560px-Tailwind_CSS_logo.svg.png"
               alt="Tailwind CSS"
-            />
-            {/* docker */}
-            <TechLogo
-              href="https://www.docker.com/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/2560px-Docker_%28container_engine%29_logo.svg.png"
-              alt="Docker"
-            />
-            <TechLogo
-              href="https://www.fly.io/"
-              src="https://1526789230-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FYrzxpMpCQh51K4O99y0o%2Fuploads%2FMoSiK0dG5BrFfBpZ3DkK%2Fflyio-logo.png?alt=media&token=25528521-92c7-43b7-95f2-895fe0c52d53"
-              alt="Fly.io"
-            />
-
-            <TechLogo
-              href="https://heroku.com/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Heroku_logo.svg/2560px-Heroku_logo.svg.png"
-              alt="Heroku"
-            />
-            <TechLogo
-              href="https://www.google.com/cloud/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google_Cloud_logo.svg/1280px-Google_Cloud_logo.svg.png"
-              alt="Google Cloud Platform"
-            />
-            <TechLogo
-              href="https://azure.microsoft.com/en-us/"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Microsoft_Azure_Logo.svg/2560px-Microsoft_Azure_Logo.svg.png"
-              alt="Microsoft Azure"
             />
             <TechLogo
               href="https://matlab.mathworks.com/"
