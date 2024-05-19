@@ -15,7 +15,7 @@ function Footer() {
             href="github.com"
           >
             <a className="text-blue-300 hover:underline transition-colors ease-in-out hover:text-blue-500">
-              Custom Made by Deepak Dharshan
+             Deepak Dharshan
             </a>
           </Link>{' '}
           using{' '}
@@ -25,7 +25,7 @@ function Footer() {
             rel="noopener noreferrer"
             className="text-blue-300 hover:underline transition-colors ease-in-out hover:text-blue-500"
           >
-            Next.js
+            
           </a>{' '}
           &{' '}
           <a
@@ -34,9 +34,8 @@ function Footer() {
             rel="noopener noreferrer"
             className="text-blue-300 hover:underline transition-colors ease-in-out hover:text-blue-500"
           >
-            Tailwind CSS
-          </a>{' '}
-          with love ❤️
+            </a>{' '}
+          
         </p>
       </div>
     </footer>
