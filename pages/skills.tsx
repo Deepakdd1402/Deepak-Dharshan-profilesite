@@ -92,6 +92,11 @@ function Skills() {
               src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/creator-dark.svg"
               alt="Zoho Creator"
             />
+            <TechLogo
+              href="https://www.salesforce.com/in/"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/220px-Salesforce.com_logo.svg.png"
+              alt="Salesforce"
+            />
           </div>
         </div>
       </main>
