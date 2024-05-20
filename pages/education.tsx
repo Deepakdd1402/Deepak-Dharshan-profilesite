@@ -21,7 +21,7 @@ function Education() {
             subschoolDescription="College of Technology & Management"
             dateRange="September 2022 - Expected September 2024"
             credential="Master of Business Administration - Technology Management"
-            logoUrl="https://www.mitindia.edu/templates/ja_university_t3/images/logo.png"
+            logoUrl="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Madras_Institute_of_Technology_logo.png/220px-Madras_Institute_of_Technology_logo.png"
             links={[
               {
                 url: 'https://www.annauniv.edu/',
