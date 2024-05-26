@@ -12,12 +12,12 @@ function Footer() {
         <p className="text-center text-sm sm:text-base">
           <Link
             legacyBehavior
-            href="github.com"
+            href="https://deepakdd1402.github.io/Deepak-Dharshan-profilesite/"
           >
             <a className="text-blue-300 hover:underline transition-colors ease-in-out hover:text-blue-500">
              Deepak Dharshan
             </a>
-          </Link>{'https://deepakdd1402.github.io/Deepak-Dharshan-profilesite/'}
+          </Link>{''}
           
           <a
             href="https://nextjs.org/"
