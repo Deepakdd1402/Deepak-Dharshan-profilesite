@@ -17,7 +17,7 @@ function Footer() {
             <a className="text-blue-300 hover:underline transition-colors ease-in-out hover:text-blue-500">
              Deepak Dharshan
             </a>
-          </Link>{' '}
+          </Link>{'https://deepakdd1402.github.io/Deepak-Dharshan-profilesite/'}
           
           <a
             href="https://nextjs.org/"
