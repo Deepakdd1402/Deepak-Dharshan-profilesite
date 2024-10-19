@@ -22,27 +22,28 @@ function Experience() {
             companyName="Wildcraft India"
             subCompanyDescription="Reward & Loyalty"
             dateRange="September 2022 - Current"
-            jobTitle="Catalogue Business Operations"
+            jobTitle="Business Analyst & CRM Administration"
             logoUrl="https://wildcraft.com/logo-vum.png"
             jobDescription={
               <div>
                 <p style={{ marginBottom: '0.5rem' }}>
-                Driving business growth through exceptional customer experiences.
+                Driving business growth through exceptional business analyst experience.
                 </p>
 
                 <p style={{ marginBottom: '0.5rem' }}>
-                With an extensive background in CRM software and a deep understanding of SAAS products and technologies, 
-                I've had the privilege of working with diverse partners across Rewards Fulfillment, Channel Loyalty, Consumer Loyalty,
-                and Employee Recognition. Whether in B2B or B2C domains, my focus has always been on elevating customer engagement and satisfaction.
+                Experienced in monitoring and evaluating the effectiveness of business strategies and operational processes. 
+                Skilled in creating regular and ad-hoc reports that deliver actionable insights to stakeholders, enhancing overall business performance.
+                Proficient in formulating and implementing data-driven strategies to inform decision-making.
+                Adept at overseeing the configuration, maintenance, and continuous improvement of CRM platforms, while also supporting development projects through requirement gathering, feature testing, and constructive feedback.
                 </p>
 
                 <p style={{ marginBottom: '0.5rem' }}>
-                My expertise lies in optimizing and maximizing the potential of loyalty programs to foster lasting relationships and drive brand advocacy. I thrive on leveraging technology to create innovative solutions that empower businesses and elevate customer loyalty to new heights.
+                My expertise lies in optimizing and maximizing the potential of loyalty programs to foster lasting relationships and drive brand advocacy. I thrive on leveraging business analysis to create innovative solutions that empower businesses and elevate customer loyalty to new heights.
                 </p>
 
                 <p>
                   <strong>
-                  This experience highlighted my effective leadership, collaborative teamwork, ability to quickly grasp new concepts, and innovative problem-solving skills.
+                  This experience highlighted my effective leadership, collaborative teamwork, ability to quickly grasp new concepts, and problem-solving skills.
                   </strong>
                 </p>
               </div>
