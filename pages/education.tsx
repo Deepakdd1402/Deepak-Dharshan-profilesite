@@ -19,7 +19,7 @@ function Education() {
           <EducationCard
             schoolName="Madras Institute of Technology"
             subschoolDescription="College of Technology & Management"
-            dateRange="September 2022 - Expected September 2024"
+            dateRange="September 2022 - September 2024"
             credential="Master of Business Administration - Technology Management"
             logoUrl="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Madras_Institute_of_Technology_logo.png/220px-Madras_Institute_of_Technology_logo.png"
             links={[
@@ -60,7 +60,7 @@ function Education() {
             dateRange="June 2016 - May 2018"
             credential="High School"
             location="Pollachi, Coimbatore"
-            logoUrl="https://cbse.vidyanethrra.com/wp-content/uploads/2021/08/cropped-Vidya-Nethra-Logo1-192x192.png"
+            logoUrl="https://www.schooldekho.org/storage/logo//2ezr1xxqqz6ssc4g0c4w0ckg8gg08w8.png"
             links={[
               {
                 url: 'https://cbse.vidyanethrra.com/',
