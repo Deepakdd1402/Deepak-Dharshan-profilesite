@@ -580,8 +580,7 @@ function Home() {
                   'shadowText text-sm sm:text-base md:text-lg mt-2 text-center transition-all ease-in-out duration-200 text-white'
                 }
               >
-                Python, C++, JavaScript/TypeScript Full-Stack Entry-Level
-                Product Specialist | Expert in Technical Support.
+                Dynamic Business Operations Analyst with expertise in SaaS and a strong foundation in data analysis, project management, and CRM administration. .
               </p>
 
               <p
@@ -589,7 +588,7 @@ function Home() {
                   'shadowText text-sm sm:text-base md:text-lg mt-2 text-center transition-all ease-in-out duration-200 text-white'
                 }
               >
-                Interests include SAAS With an extensive background in CRM software and a deep understanding of SAAS products and technologies.
+                Passionate about leveraging technical skills in Python, SQL, and Power BI to drive strategic growth and optimize business solutions.
               </p>
               <p
                 className={
