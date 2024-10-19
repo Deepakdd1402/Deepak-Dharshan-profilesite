@@ -74,7 +74,7 @@ function Experience() {
                 </p>
 
                 <p>
-                  I am proud to have contributed to the development of {' '}
+                  I am proud to have contributed to the development & Implementation of CRM in our channel
                   <a
                     href="https://wildcraft.kapturecrm.com/"
                     target="_blank"
