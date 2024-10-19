@@ -20,7 +20,7 @@ function Experience() {
           </p>
           <ExperienceCard
             companyName="Wildcraft India"
-            subCompanyDescription="Reward & Loyalty"
+            subCompanyDescription="Business Analyst - B2B, B2C, Corporate"
             dateRange="September 2022 - Current"
             jobTitle="Business Analyst & CRM Administration"
             logoUrl="https://wildcraft.com/logo-vum.png"
@@ -57,7 +57,7 @@ function Experience() {
           />
           <ExperienceCard
             companyName="Wildcraft India"
-            subCompanyDescription="CRM Soultion Development"
+            subCompanyDescription="CRM Solution Development"
             dateRange="March 2022 - August 2022"
             jobTitle="CRM Administration & Development Intern"
             logoUrl="https://wildcraft.com/logo-vum.png"
@@ -68,7 +68,9 @@ function Experience() {
                 </p>
 
                 <p style={{ marginBottom: '0.5rem' }}>
-                My responsibilities included configuring and integrating the CRM solution to align with the specific needs and requirements of the sales channel, thereby playing a pivotal role in enhancing organizational efficiency and effectiveness.
+                Proficient in configuring and customizing CRM systems to align with specific business needs, including the setup of workflows, custom fields, and dashboards.
+                Experienced in providing user support by troubleshooting issues, addressing queries, and creating user guides and training materials to enhance user engagement with the CRM system. Skilled in monitoring system performance, implementing regular updates and upgrades, and introducing new features and functionalities.
+                Focused on improving operational efficiency by automating routine tasks and processes within the CRM, including the establishment of automated workflows and triggers.
                 </p>
 
                 <p>
