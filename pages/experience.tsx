@@ -22,7 +22,7 @@ function Experience() {
             companyName="Wildcraft India"
             subCompanyDescription="Business Analyst - B2B, B2C, Corporate"
             dateRange="September 2022 - Current"
-            jobTitle="Business Analyst & CRM Administration"
+            jobTitle="Business & CRM Analyst "
             logoUrl="https://wildcraft.com/logo-vum.png"
             jobDescription={
               <div>
