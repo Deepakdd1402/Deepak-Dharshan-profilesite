@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter, NextRouter } from 'next/router';
 import Head from 'next/head';
-import StarBackground from '../components/StarBackground';
+import CursorFX from '../components/CursorFX';
 import Layout from '../components/RootLayout';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -14,12 +14,12 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <main className={inter.className}>
-      <StarBackground />
+      <CursorFX />
       <AnimatePresence mode="wait">
         <div key={router.pathname} className="font-inter">
           <Head>
             <meta charSet="utf-8" />
-            <title>Deepak Dharshan | CRM Business Analyst </title>
+            <title>Deepak Dharshan | CRM Specialist & Business Analyst</title>
             <meta
               name="description"
               content="Personalized Portfolio Highlighting the Proficiency, Expertise, and Achievements of a skilled CRM Business Analyst within the realms of Ethical Business Practices and Technology."
@@ -28,14 +28,14 @@ function App({ Component, pageProps }: AppProps) {
               name="keywords"
               content="Deepak Dharshan, Personalized Portfolio Highlighting the Proficiency, Expertise, and Achievements of a skilled CRM Business Analyst within the realms of Ethical Business Practices and Technology."
             />
-            <meta name="author" content="Kevin Kwan" />
+            <meta name="author" content="Deepak Dharshan" />
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
             <meta
               property="og:title"
-              content="Kevin Kwan | Software Engineering Portfolio"
+              content="Deepak Dharshan | CRM Specialist & Business Analyst"
             />
             <meta
               property="og:description"

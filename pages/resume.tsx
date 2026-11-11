@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { useMediaQuery } from 'react-responsive';
+import { FiDownload, FiFileText } from 'react-icons/fi';
+import PageHeader from '../components/PageHeader';
 
 declare global {
   interface Window {
@@ -70,26 +72,35 @@ function Resume({ adobeClientId }: ResumeProps) {
       <Head>
         <title>Deepak Dharshan | Resume</title>
       </Head>
-      <main
-        className="flex-1 p-4 flex flex-col items-center justify-center"
-        style={{ height: '100vh', paddingTop: '5rem' }}
-      >
-        <p className="text-white text-2xl font-bold mb-4 text-center">
-          {isMobile
-            ? 'It seems like you are on a mobile device! For a better experience, we recommend that you please '
-            : 'If you have troubles viewing the PDF, you can '}
-          <a
-            href="Deepak_Dharshan_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 underline"
-          >
-            click here to view/download it
-          </a>
-          .
-        </p>
-        {!isMobile && <div id="adobe-dc-view" className="max-w-5xl mx-auto" />}
-      </main>
+      <PageHeader icon={FiFileText} eyebrow="Document" title="Resume">
+        <a
+          href="Deepak_Dharshan_CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-brand-500 px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-600"
+        >
+          <FiDownload size={14} /> Download PDF
+        </a>
+      </PageHeader>
+      <div className="overflow-hidden rounded-[22px] border border-sf-g5 bg-white p-2 shadow-widget">
+        {isMobile ? (
+          <p className="p-6 text-center text-sm text-sf-weak">
+            You are on a mobile device. For the best experience, please use the
+            Download PDF button above to view the resume.
+          </p>
+        ) : (
+          <>
+            <p className="px-3 py-2 text-xs text-sf-weak">
+              Trouble viewing the PDF?{' '}
+              <a href="Deepak_Dharshan_CV.pdf" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-500 underline">
+                Open or download it directly
+              </a>
+              .
+            </p>
+            <div id="adobe-dc-view" className="mx-auto h-[78vh] max-w-5xl" />
+          </>
+        )}
+      </div>
     </div>
   );
 }

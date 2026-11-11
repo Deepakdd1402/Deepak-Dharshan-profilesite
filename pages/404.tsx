@@ -1,28 +1,22 @@
-import React, { useCallback } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
+import Link from 'next/link';
+import { FiCompass } from 'react-icons/fi';
 
 function NotFoundPage() {
-  const router = useRouter();
-
-  const handleBackClick = useCallback(() => {
-    router.push('/');
-  }, [router]);
-
   return (
-    <div className="absolute inset-0 flex items-center justify-center text-center">
-      <div className="flex flex-col items-center">
-        <h1 className="text-6xl font-bold">404</h1>
-        <p className="mt-2 text-lg">Page Not Found</p>
-        <p className="mt-2">
-          Looks like you&apos;ve followed a broken link or entered a URL that
-          doesn&apos;t exist on this site.
+    <div className="flex min-h-[60vh] items-center justify-center">
+      <div className="max-w-md rounded-[22px] border border-sf-g5 bg-white p-8 text-center shadow-widget">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
+          <FiCompass size={26} />
+        </span>
+        <h1 className="mt-4 text-5xl font-semibold tracking-tight text-sf-ink">404</h1>
+        <p className="mt-2 text-sm text-sf-weak">
+          This record doesn&apos;t exist. You may have followed a broken link or
+          typed a URL that isn&apos;t part of this site.
         </p>
-        <button
-          onClick={handleBackClick}
-          className="mt-4 w-64 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-        >
-          Back to our site
-        </button>
+        <Link href="/" className="mt-5 inline-block rounded-lg bg-brand-500 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-600">
+          Back to home
+        </Link>
       </div>
     </div>
   );

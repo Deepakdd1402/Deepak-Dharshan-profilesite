@@ -1,13 +1,12 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import Head from 'next/head';
 
-import {
-  AiOutlineCheckCircle,
-  AiOutlineCloseCircle,
-  AiOutlineClose,
-} from 'react-icons/ai';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiAlertCircle, FiCheckCircle, FiGithub, FiLinkedin, FiMail, FiSend } from 'react-icons/fi';
+import PageHeader from '../components/PageHeader';
+import { LINKS } from '../lib/portfolio';
 
 interface ContactProps {
   serviceId: string;
@@ -50,131 +49,126 @@ function Contact({ serviceId, templateId, publicKey }: ContactProps) {
     }
   }
 
+  useEffect(() => {
+    if (!isModalOpen) return undefined;
+    const id = window.setTimeout(closeModal, 5000);
+    return () => window.clearTimeout(id);
+  }, [isModalOpen, closeModal]);
+
+  const inputCls =
+    'w-full rounded-lg border border-sf-g5 bg-white px-3 py-2 text-sm text-sf-ink outline-none transition-shadow focus:border-brand-400 focus:shadow-[0_0_0_3px_rgba(27,150,255,.2)]';
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || LINKS.email;
+
   return (
     <div>
       <Head>
-        <title>Deepak Dharshan | Contact Form</title>
+        <title>Deepak Dharshan | Contact</title>
       </Head>
-      <main className="flex-1 p-4" style={{ paddingTop: '5rem' }}>
-        <div className="max-w-2xl mx-auto">
-          <p className="text-white text-2xl font-bold mb-4 text-center">
-            Feel Free to Contact Me!
-          </p>
-          <p className="text-white mb-4">
-            If you would like to reach out to me, leave feedback, or report a
-            bug on my website, please fill out the form below with your name,
-            email, and a message.
-            <br />
-            You can also directly email me at{' '}
-            {process.env.NEXT_PUBLIC_CONTACT_EMAIL ? (
-              <a
-                href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}
-                className="text-blue-400 underline"
-              >
-                {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
-              </a>
-            ) : (
-              '(deepakdharshan22@yahoo.com)'
-            )}
-            <a>.</a>
-            <br />
-            <br />
-            I&lsquo;ll get back to you as soon as possible! 😁
-          </p>
-          <form
-            ref={form}
-            onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4"
-          >
-            <input
-              {...register('name', { required: true })}
-              placeholder="Your Name"
-              className="w-full p-2 border border-gray-300 rounded text-black"
-            />
-            {errors.name && (
-              <span className="text-red-500">This field is required.</span>
-            )}
+      <PageHeader icon={FiMail} eyebrow="New lead" title="Get in touch" />
 
-            <input
-              {...register('email', {
-                required: 'This field is required.',
-                pattern: {
-                  value:
-                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: 'Please provide a valid email address.',
-                },
-              })}
-              placeholder="Your Email Address"
-              className="w-full p-2 border border-gray-300 rounded text-black"
-            />
-            {errors.email && typeof errors.email.message === 'string' && (
-              <span className="text-red-500">{errors.email.message}</span>
-            )}
-
+      <div className="grid gap-4 lg:grid-cols-3">
+        <form
+          ref={form}
+          onSubmit={handleSubmit(onSubmit)}
+          className="rounded-[22px] border border-sf-g5 bg-white p-5 shadow-widget lg:col-span-2"
+        >
+          <p className="mb-4 text-sm text-sf-weak">
+            Reach out, leave feedback, or report a bug on this site. Fields marked
+            <span className="text-sf-error"> *</span> are required.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <label className="block text-xs font-medium text-sf-weak">
+              <span className="text-sf-error">*</span> Name
+              <input {...register('name', { required: true })} placeholder="Your name" className={`${inputCls} mt-1`} />
+              {errors.name && <span className="mt-1 block text-sf-error">This field is required.</span>}
+            </label>
+            <label className="block text-xs font-medium text-sf-weak">
+              <span className="text-sf-error">*</span> Email
+              <input
+                {...register('email', {
+                  required: 'This field is required.',
+                  pattern: {
+                    value:
+                      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    message: 'Please provide a valid email address.',
+                  },
+                })}
+                placeholder="you@company.com"
+                className={`${inputCls} mt-1`}
+              />
+              {errors.email && typeof errors.email.message === 'string' && (
+                <span className="mt-1 block text-sf-error">{errors.email.message}</span>
+              )}
+            </label>
+          </div>
+          <label className="mt-4 block text-xs font-medium text-sf-weak">
+            <span className="text-sf-error">*</span> Message
             <textarea
               {...register('message', {
                 required: 'This field is required.',
-                minLength: {
-                  value: 10,
-                  message: 'Your message must be at least 10 characters.',
-                },
+                minLength: { value: 10, message: 'Your message must be at least 10 characters.' },
               })}
-              placeholder="Your Message"
-              className="w-full p-2 border border-gray-300 rounded text-black"
-              rows={4}
+              placeholder="How can I help?"
+              rows={5}
+              className={`${inputCls} mt-1`}
             />
             {errors.message && typeof errors.message.message === 'string' && (
-              <span className="text-red-500">{errors.message.message}</span>
+              <span className="mt-1 block text-sf-error">{errors.message.message}</span>
             )}
-
-            <input
-              type="submit"
-              className="w-full p-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-600"
-            />
-          </form>
-        </div>
-      </main>
-      {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div
-            className={`p-8 rounded shadow-lg relative flex items-center justify-center ${
-              submitResult === 'success' ? 'bg-green-200' : 'bg-red-200'
-            }`}
-          >
-            {' '}
-            <button
-              onClick={closeModal}
-              className="absolute top-0 right-0 m-2 text-gray-500 hover:text-gray-700"
-            >
-              <AiOutlineClose size={24} />
+          </label>
+          <div className="mt-5 flex justify-end">
+            <button type="submit" className="inline-flex items-center gap-2 rounded-lg bg-brand-500 px-5 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-brand-600">
+              <FiSend size={14} /> Send message
             </button>
-            <div className="">
-              {submitResult === 'success' && (
-                <div className="flex flex-col items-center justify-center">
-                  <AiOutlineCheckCircle
-                    className="text-green-500 animate-bounce"
-                    size={50}
-                  />
-                  <p className="text-green-900 text-lg font-bold text-center">
-                    Successfully submitted form!
-                  </p>
-                </div>
-              )}
-              {submitResult === 'failure' && (
-                <div className="flex flex-col items-center justify-center">
-                  <AiOutlineCloseCircle
-                    className="text-red-500 animate-bounce"
-                    size={50}
-                  />
-                  <p className="text-red-500 text-lg font-bold text-center">
-                    Failed to submit form. Please try again later.
-                  </p>
-                </div>
-              )}
-            </div>
           </div>
-        </div>
-      )}
+        </form>
+
+        <aside className="space-y-3 rounded-[22px] border border-white/80 bg-white/80 p-5 shadow-widget backdrop-blur-xl">
+          <h2 className="text-[11px] font-semibold uppercase tracking-wider text-brand-500">Direct contact</h2>
+          {[
+            { icon: FiMail, label: email, href: `mailto:${email}` },
+            { icon: FiLinkedin, label: 'LinkedIn', href: LINKS.linkedin },
+            { icon: FiGithub, label: 'GitHub', href: LINKS.github },
+          ].map((c) => (
+            <a key={c.label} href={c.href} target={c.href.startsWith('mailto') ? undefined : '_blank'} rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl p-2 text-sm text-sf-ink transition-colors hover:bg-brand-50">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-50 text-brand-500">
+                <c.icon size={17} />
+              </span>
+              <span className="truncate">{c.label}</span>
+            </a>
+          ))}
+        </aside>
+      </div>
+
+      {/* macOS-style notification toast */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 40 }}
+            className="fixed right-4 top-20 z-50 flex w-80 items-start gap-3 rounded-2xl border border-white/80 bg-white/85 p-3 shadow-window backdrop-blur-xl"
+            role="status"
+          >
+            {submitResult === 'success' ? (
+              <FiCheckCircle className="mt-0.5 shrink-0 text-sf-success" size={22} />
+            ) : (
+              <FiAlertCircle className="mt-0.5 shrink-0 text-sf-error" size={22} />
+            )}
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-sf-ink">
+                {submitResult === 'success' ? 'Message sent' : 'Could not send'}
+              </p>
+              <p className="text-xs text-sf-weak">
+                {submitResult === 'success'
+                  ? 'Thanks for reaching out. I will get back to you soon.'
+                  : 'Failed to submit form. Please try again later.'}
+              </p>
+            </div>
+            <button type="button" onClick={closeModal} aria-label="Dismiss" className="text-sf-weak hover:text-sf-ink">×</button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

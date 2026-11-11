@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import ProjectCard from '../components/ProjectCard';
-import { FaHackerrank } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FiFolder, FiGithub, FiGlobe } from 'react-icons/fi';
+import PageHeader from '../components/PageHeader';
 
 // const github_pat = process.env.GITHUB_PAT;
 
@@ -60,46 +61,71 @@ const projectsWithDescriptions = [
 interface ProjectsProps {
   descriptions: { [key: string]: string };
 }
+interface ProjectItem {
+  name: string;
+  repo?: string;
+  description?: string;
+  githubLink?: string;
+  demoLink?: string;
+}
+
+const PROJECTS: ProjectItem[] = [
+  {
+    name: 'Simulation Study of Footstep Power Generation',
+    description: 'Project description.',
+  },
+  {
+    name: 'Autonomous Vehicle Modeling',
+    repo: 'Autonomous-Vehicle-Modeling',
+    githubLink: 'https://github.com/Deepakdd1402/Autonomous-Vehicle-Modeling',
+  },
+  {
+    name: 'Responsive Photo Gallery Website',
+    repo: 'Responsive-Photo-Gallery-Website',
+    demoLink: 'https://deepakdd1402.github.io/Responsive-Photo-Gallery-Website/',
+  },
+];
+
 function Projects({ descriptions }: ProjectsProps) {
-  // const isLoading = Object.values(descriptions).includes(loadingMessage);
   return (
     <div>
       <Head>
-        <title>Deepak Dharshan | My Projects</title>
+        <title>Deepak Dharshan | Projects</title>
       </Head>
-      <main className="flex-1 p-4" style={{ paddingTop: '5rem' }}>
-        <p className="text-3xl font-bold mb-2 text-center text-blue-200 underline pt-4">
-          Completed Projects
-        </p>
-        <div className="flex flex-wrap justify-center -mx-2 bg-blue-300 bg-opacity-30 rounded">
-          <ProjectCard
-            name="Simulation Study of Footstep Power Generation"
-            description="Project description."
-          />
-          <ProjectCard
-            name="Autonomous Vehicle Modeling"
-            description={
-              descriptions['Project Description'] || loadingMessage
-            }
-            githubLink="https://github.com/Deepakdd1402/Autonomous-Vehicle-Modeling"
-          />
-          <ProjectCard
-            name="Responsive Photo Gallery Website"
-            description={
-              descriptions['Project Description'] || loadingMessage
-            }
-            githubLink="https://deepakdd1402.github.io/Responsive-Photo-Gallery-Website/"
-          />
-          <ProjectCard
-            name="Responsive Photo Gallery Website"
-            description={
-              descriptions['Project Description'] || loadingMessage
-            }
-            githubLink="https://deepakdd1402.github.io/Responsive-Photo-Gallery-Website/"
-          /> 
-        </div>
-        
-      </main>
+      <PageHeader icon={FiFolder} eyebrow="Opportunities closed" title="Completed projects" />
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {PROJECTS.map((p, i) => (
+          <motion.article
+            key={p.name}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08 }}
+            whileHover={{ y: -4 }}
+            className="flex flex-col rounded-[22px] border border-sf-g5 bg-white p-5 shadow-widget"
+          >
+            <span className="w-fit rounded-full bg-sf-success/10 px-2.5 py-1 text-xs font-semibold text-sf-success">
+              Completed
+            </span>
+            <h2 className="mt-3 text-base font-semibold leading-snug text-sf-ink">{p.name}</h2>
+            <p className="mt-2 text-sm text-sf-weak">
+              {p.description || (p.repo && descriptions[p.repo]) || loadingMessage}
+            </p>
+            <div className="mt-auto flex gap-2 pt-4">
+              {p.githubLink && (
+                <a href={p.githubLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg border border-sf-g5 px-3 py-1.5 text-xs font-medium text-sf-ink transition-colors hover:bg-brand-50 hover:text-brand-500">
+                  <FiGithub size={13} /> GitHub
+                </a>
+              )}
+              {p.demoLink && (
+                <a href={p.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-brand-500 px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-brand-600">
+                  <FiGlobe size={13} /> Live demo
+                </a>
+              )}
+            </div>
+          </motion.article>
+        ))}
+      </div>
     </div>
   );
 }

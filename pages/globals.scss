@@ -1,123 +1,193 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-// Credits for the Star Background. https://codepen.io/sarazond/pen/LYGbwj
-@import '~compass-mixins/lib/compass/css3'; // n is number of stars required
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  --brand: #0176d3;
+  --brand-light: #1b96ff;
+  --brand-dark: #014486;
+  --ink: #181818;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  }
+html {
+  background: #f3f2f2;
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--ink);
+  background-color: #f4f6f9;
+  /* quiet dot grid, like a CRM canvas */
+  background-image: radial-gradient(#d9dee7 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-font-smoothing: antialiased;
 }
 
-.custom-title {
-  background: linear-gradient(white, #8ba1b7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: 'Lato', sans-serif;
-  font-weight: 900;
+::selection {
+  background: #cfe3fb;
 }
 
-@function multiple-box-shadow($n) {
-  $value: '#{random(200)}vw #{random(500)}vh #FFF';
-
-  @for $i from 2 through $n {
-    $value: '#{$value}, #{random(200)}vw #{random(500)}vh #FFF';
-  }
-
-  @return unquote($value);
+:focus-visible {
+  outline: 2px solid var(--brand-light);
+  outline-offset: 2px;
 }
 
-$shadows-small: multiple-box-shadow(700);
-$shadows-medium: multiple-box-shadow(200);
-$shadows-big: multiple-box-shadow(100);
-
-#stars {
-  width: 0.1vh;
-  height: 0.1vh;
-  background: transparent;
-  box-shadow: $shadows-small;
-  animation: animStar 50s linear infinite;
-
-  &:after {
-    content: ' ';
-    position: absolute;
-    top: 100vh;
-    width: 0.1vh;
-    height: 0.1vh;
-    background: transparent;
-    box-shadow: $shadows-small;
-  }
+/* ---------- click / cursor effects ---------- */
+.fx-ring,
+.fx-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 9999px;
+  will-change: transform;
 }
-
-#stars2 {
-  width: 0.2vh;
-  height: 0.2vh;
-  background: transparent;
-  box-shadow: $shadows-medium;
-  animation: animStar 100s linear infinite;
-
-  &:after {
-    content: ' ';
-    position: absolute;
-    top: 100vh;
-    width: 0.2vh;
-    height: 0.2vh;
-    background: transparent;
-    box-shadow: $shadows-medium;
-  }
+.fx-ring {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(1, 118, 211, 0.55);
+  background: rgba(27, 150, 255, 0.06);
+  transition: opacity 0.2s, border-color 0.2s, background 0.2s;
 }
-
-#stars3 {
-  width: 0.3vh;
-  height: 0.3vh;
-  background: transparent;
-  box-shadow: $shadows-big;
-  animation: animStar 150s linear infinite;
-
-  &:after {
-    content: ' ';
-    position: absolute;
-    top: 100vh;
-    width: 0.3vh;
-    height: 0.3vh;
-    background: transparent;
-    box-shadow: $shadows-big;
-  }
+.fx-ring[data-hover='true'] {
+  border-color: rgba(1, 118, 211, 0.9);
+  background: rgba(27, 150, 255, 0.14);
 }
-
-.shadowText {
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+.fx-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--brand);
 }
-.gradientText {
-  background: linear-gradient(white, #8ba1b7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.fx-ripple {
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  margin: -35px 0 0 -35px;
+  border-radius: 9999px;
+  border: 2px solid var(--brand-light);
+  pointer-events: none;
+  z-index: 9998;
+  animation: fx-ripple 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
 }
-
-@keyframes animStar {
+.fx-spark {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 9998;
+  background: var(--brand-light);
+  animation: fx-spark 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.fx-spark:nth-child(3n) {
+  background: #2e844a;
+}
+.fx-spark:nth-child(3n + 1) {
+  background: #ffb75d;
+}
+@keyframes fx-ripple {
   from {
-    transform: translateY(0px);
+    transform: scale(0.15);
+    opacity: 0.9;
   }
-
   to {
-    transform: translateY(-100vh);
+    transform: scale(1.5);
+    opacity: 0;
   }
+}
+@keyframes fx-spark {
+  from {
+    transform: rotate(var(--a)) translateX(8px) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(var(--a)) translateX(40px) scale(0.2);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fx-ripple,
+  .fx-spark {
+    animation: none;
+    display: none;
+  }
+}
+
+/* ---------- macOS Notes window ---------- */
+.mac-font {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter',
+    'Segoe UI', sans-serif;
+}
+.mac-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.mac-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+}
+
+/* ---------- Windows XP (Luna) ---------- */
+.xp-font {
+  font-family: Tahoma, 'Segoe UI', Verdana, Geneva, sans-serif;
+}
+.xp-bliss {
+  background: radial-gradient(
+        140% 60% at 30% 108%,
+        #5fae2f 0%,
+        #3f8a1f 38%,
+        transparent 39%
+      ),
+    radial-gradient(
+      120% 55% at 90% 112%,
+      #4c9a26 0%,
+      #337d18 40%,
+      transparent 41%
+    ),
+    linear-gradient(#2f6fd8 0%, #6fa9f2 55%, #bcd9fb 78%);
+}
+.xp-title {
+  background: linear-gradient(
+    to bottom,
+    #0997ff 0%,
+    #0053ee 8%,
+    #0050ee 40%,
+    #0066ff 88%,
+    #0057e5 94%,
+    #003dd7 100%
+  );
+}
+.xp-title-inactive {
+  background: linear-gradient(to bottom, #7697e7 0%, #7e9ee3 50%, #9db8f0 100%);
+}
+.xp-task {
+  background: linear-gradient(180deg, #7ba2e7 0%, #6375d6 100%);
+}
+.xp-taskbar {
+  background: linear-gradient(
+    to bottom,
+    #245edb 0%,
+    #3f8cf3 9%,
+    #245edb 18%,
+    #245edb 92%,
+    #1941a5 100%
+  );
+}
+.xp-start {
+  background: linear-gradient(
+    to bottom,
+    #5cb850 0%,
+    #3c9a31 12%,
+    #3c9a31 85%,
+    #2b7a22 100%
+  );
+}
+.xp-btn {
+  border: 1px solid #003c74;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #fff 0%, #ece9d8 86%, #d8d2bd 100%);
+}
+.xp-btn:active {
+  background: linear-gradient(to bottom, #cdcac3 0%, #e3e1d7 100%);
 }

@@ -1,627 +1,120 @@
-import { useEffect, useMemo, useState, useCallback } from 'react';
-import Particles, { initParticlesEngine } from '@tsparticles/react';
-import { type Container, type ISourceOptions } from '@tsparticles/engine';
-import { loadFull } from 'tsparticles';
 import Head from 'next/head';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+import { FiBriefcase, FiDownload, FiLayers, FiTrendingUp } from 'react-icons/fi';
+import SiteMascot from '../components/SiteMascot';
+import TypingText from '../components/TypingText';
+import StatCounter from '../components/StatCounter';
+import Widget from '../components/Widget';
+import { CalendarWidget, CareerPath, ClockWidget } from '../components/HomeWidgets';
+import { CRM_PLATFORMS } from '../lib/portfolio';
+
+const ROLES = [
+  'CRM Specialist',
+  'Business & CRM Analyst',
+  'GoHighLevel Expert',
+  'Workflow Automation Builder',
+];
 
 function Home() {
-  const [init, setInit] = useState(false);
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadFull(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
-
-  const particlesLoaded = useCallback(
-    async (container?: Container): Promise<void> => {
-      console.log(container);
-    },
-    []
-  );
-
-  const options: ISourceOptions = useMemo(
-    () => ({
-      autoPlay: true,
-      background: {
-        // color: {
-        //   value: '#0d47a1',
-        // },
-        image: '',
-        position: '',
-        repeat: '',
-        size: '',
-        opacity: 1,
-      },
-      backgroundMask: {
-        composite: 'destination-out',
-        cover: {
-          color: {
-            value: '#fff',
-          },
-          opacity: 1,
-        },
-        enable: false,
-      },
-      clear: true,
-      defaultThemes: {},
-      delay: 0,
-      fullScreen: {
-        enable: false,
-        zIndex: 0,
-      },
-      detectRetina: true,
-      duration: 0,
-      fpsLimit: 120,
-      interactivity: {
-        detectsOn: 'window',
-        events: {
-          onClick: {
-            enable: true,
-            mode: 'push',
-          },
-          onDiv: {
-            selectors: [],
-            enable: false,
-            mode: [],
-            type: 'circle',
-          },
-          onHover: {
-            enable: true,
-            mode: 'grab',
-            parallax: {
-              enable: true,
-              force: 60,
-              smooth: 10,
-            },
-          },
-          resize: {
-            delay: 0.5,
-            enable: true,
-          },
-        },
-        modes: {
-          trail: {
-            delay: 1,
-            pauseOnStop: false,
-            quantity: 1,
-          },
-          attract: {
-            distance: 200,
-            duration: 0.4,
-            easing: 'ease-out-quad',
-            factor: 1,
-            maxSpeed: 50,
-            speed: 1,
-          },
-          bounce: {
-            distance: 200,
-          },
-          bubble: {
-            distance: 400,
-            duration: 2,
-            mix: false,
-            opacity: 0.8,
-            size: 40,
-            divs: {
-              distance: 200,
-              duration: 0.4,
-              mix: false,
-              selectors: [],
-            },
-          },
-          connect: {
-            distance: 80,
-            links: {
-              opacity: 0.5,
-            },
-            radius: 60,
-          },
-          grab: {
-            distance: 400,
-            links: {
-              blink: false,
-              consent: false,
-              opacity: 1,
-            },
-          },
-          push: {
-            default: true,
-            groups: [],
-            quantity: 4,
-          },
-          remove: {
-            quantity: 2,
-          },
-          repulse: {
-            distance: 200,
-            duration: 0.4,
-            factor: 100,
-            speed: 1,
-            maxSpeed: 50,
-            easing: 'ease-out-quad',
-            divs: {
-              distance: 200,
-              duration: 0.4,
-              factor: 100,
-              speed: 1,
-              maxSpeed: 50,
-              easing: 'ease-out-quad',
-              selectors: [],
-            },
-          },
-          slow: {
-            factor: 3,
-            radius: 200,
-          },
-          light: {
-            area: {
-              gradient: {
-                start: {
-                  value: '#ffffff',
-                },
-                stop: {
-                  value: '#000000',
-                },
-              },
-              radius: 1000,
-            },
-            shadow: {
-              color: {
-                value: '#000000',
-              },
-              length: 2000,
-            },
-          },
-        },
-      },
-      manualParticles: [],
-      particles: {
-        bounce: {
-          horizontal: {
-            value: 1,
-          },
-          vertical: {
-            value: 1,
-          },
-        },
-        collisions: {
-          absorb: {
-            speed: 2,
-          },
-          bounce: {
-            horizontal: {
-              value: 1,
-            },
-            vertical: {
-              value: 1,
-            },
-          },
-          enable: false,
-          maxSpeed: 50,
-          mode: 'bounce',
-          overlap: {
-            enable: true,
-            retries: 0,
-          },
-        },
-        color: {
-          value: '#ffffff',
-          animation: {
-            h: {
-              count: 0,
-              enable: false,
-              speed: 1,
-              decay: 0,
-              delay: 0,
-              sync: true,
-              offset: 0,
-            },
-            s: {
-              count: 0,
-              enable: false,
-              speed: 1,
-              decay: 0,
-              delay: 0,
-              sync: true,
-              offset: 0,
-            },
-            l: {
-              count: 0,
-              enable: false,
-              speed: 1,
-              decay: 0,
-              delay: 0,
-              sync: true,
-              offset: 0,
-            },
-          },
-        },
-        effect: {
-          close: true,
-          fill: true,
-          options: {},
-          type: [],
-        },
-        groups: {},
-        move: {
-          angle: {
-            offset: 0,
-            value: 90,
-          },
-          attract: {
-            distance: 200,
-            enable: false,
-            rotate: {
-              x: 3000,
-              y: 3000,
-            },
-          },
-          center: {
-            x: 50,
-            y: 50,
-            mode: 'percent',
-            radius: 0,
-          },
-          decay: 0,
-          distance: {},
-          direction: 'none',
-          drift: 0,
-          enable: true,
-          gravity: {
-            acceleration: 9.81,
-            enable: false,
-            inverse: false,
-            maxSpeed: 50,
-          },
-          path: {
-            clamp: true,
-            delay: {
-              value: 0,
-            },
-            enable: false,
-            options: {},
-          },
-          outModes: {
-            default: 'out',
-            bottom: 'out',
-            left: 'out',
-            right: 'out',
-            top: 'out',
-          },
-          random: false,
-          size: false,
-          speed: 2,
-          spin: {
-            acceleration: 0,
-            enable: false,
-          },
-          straight: false,
-          trail: {
-            enable: false,
-            length: 10,
-            fill: {},
-          },
-          vibrate: false,
-          warp: false,
-        },
-        number: {
-          density: {
-            enable: true,
-            width: 1920,
-            height: 1080,
-          },
-          limit: {
-            mode: 'delete',
-            value: 0,
-          },
-          value: 90,
-        },
-        opacity: {
-          value: {
-            min: 0.1,
-            max: 0.5,
-          },
-          animation: {
-            count: 0,
-            enable: true,
-            speed: 3,
-            decay: 0,
-            delay: 0,
-            sync: false,
-            mode: 'auto',
-            startValue: 'random',
-            destroy: 'none',
-          },
-        },
-        reduceDuplicates: false,
-        shadow: {
-          blur: 0,
-          color: {
-            value: '#000',
-          },
-          enable: false,
-          offset: {
-            x: 0,
-            y: 0,
-          },
-        },
-        shape: {
-          close: true,
-          fill: true,
-          options: {},
-          type: 'circle',
-        },
-        size: {
-          value: {
-            min: 1,
-            max: 10,
-          },
-          animation: {
-            count: 0,
-            enable: true,
-            speed: 20,
-            decay: 0,
-            delay: 0,
-            sync: false,
-            mode: 'auto',
-            startValue: 'random',
-            destroy: 'none',
-          },
-        },
-        stroke: {
-          width: 0,
-        },
-        zIndex: {
-          value: 0,
-          opacityRate: 1,
-          sizeRate: 1,
-          velocityRate: 1,
-        },
-        destroy: {
-          bounds: {},
-          mode: 'none',
-          split: {
-            count: 1,
-            factor: {
-              value: 3,
-            },
-            rate: {
-              value: {
-                min: 4,
-                max: 9,
-              },
-            },
-            sizeOffset: true,
-            particles: {},
-          },
-        },
-        roll: {
-          darken: {
-            enable: false,
-            value: 0,
-          },
-          enable: false,
-          enlighten: {
-            enable: false,
-            value: 0,
-          },
-          mode: 'vertical',
-          speed: 25,
-        },
-        tilt: {
-          value: 0,
-          animation: {
-            enable: false,
-            speed: 0,
-            decay: 0,
-            sync: false,
-          },
-          direction: 'clockwise',
-          enable: false,
-        },
-        twinkle: {
-          lines: {
-            enable: false,
-            frequency: 0.05,
-            opacity: 1,
-          },
-          particles: {
-            enable: false,
-            frequency: 0.05,
-            opacity: 1,
-          },
-        },
-        wobble: {
-          distance: 5,
-          enable: false,
-          speed: {
-            angle: 50,
-            move: 10,
-          },
-        },
-        life: {
-          count: 0,
-          delay: {
-            value: 0,
-            sync: false,
-          },
-          duration: {
-            value: 0,
-            sync: false,
-          },
-        },
-        rotate: {
-          value: 0,
-          animation: {
-            enable: false,
-            speed: 0,
-            decay: 0,
-            sync: false,
-          },
-          direction: 'clockwise',
-          path: false,
-        },
-        orbit: {
-          animation: {
-            count: 0,
-            enable: false,
-            speed: 1,
-            decay: 0,
-            delay: 0,
-            sync: false,
-          },
-          enable: false,
-          opacity: 1,
-          rotation: {
-            value: 45,
-          },
-          width: 1,
-        },
-        links: {
-          blink: false,
-          color: {
-            value: '#ffffff',
-          },
-          consent: false,
-          distance: 150,
-          enable: true,
-          frequency: 1,
-          opacity: 0.4,
-          shadow: {
-            blur: 5,
-            color: {
-              value: '#000',
-            },
-            enable: false,
-          },
-          triangles: {
-            enable: false,
-            frequency: 1,
-          },
-          width: 1,
-          warp: false,
-        },
-        repulse: {
-          value: 0,
-          enabled: false,
-          distance: 1,
-          duration: 1,
-          factor: 1,
-          speed: 1,
-        },
-      },
-      pauseOnBlur: true,
-      pauseOnOutsideViewport: true,
-      responsive: [],
-      smooth: false,
-      style: {},
-      themes: [],
-      zLayers: 100,
-      name: 'Parallax',
-      motion: {
-        disable: false,
-        reduce: {
-          factor: 4,
-          value: true,
-        },
-      },
-    }),
-    []
-  );
-
+  const { basePath } = useRouter();
   return (
     <div>
       <Head>
-        <title>Deepak Dharshan | Home Page</title>
+        <title>Deepak Dharshan | CRM Specialist & Business Analyst</title>
       </Head>
-      <div id="container">
-        <main className="flex-1">
-          <div
-            id="tsparticles"
-            style={{ height: '100vh', overflow: 'auto' }}
-            className="w-full relative"
-          >
-            {init && (
-              <Particles
-                id="tsparticles"
-                options={options}
-                particlesLoaded={particlesLoaded}
-              />
-            )}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
-              {/* <div
-                style={{ width: '20vw', height: '20vw' }}
-                className="mx-auto rounded-full overflow-hidden"
-              >
-                <img
-                  src="https://media.licdn.com/dms/image/D5603AQFJHsp7k3lE5g/profile-displayphoto-shrink_800_800/0/1690062986221?e=1708560000&v=beta&t=zxWNvDHLTmQQPPKctNEKAUeFohd1AunVBSIpRABI0Sc"
-                  alt="Kevin Kwan"
-                  className="w-full h-full object-cover"
-                />
-              </div> */}
-              <p
-                className={
-                  'gradientText text-5xl sm:text-7xl md:text-8xl font-bold mt-4 text-center  sm:hover:text-8xl md:hover:text-9xl transition-all ease-in-out duration-200'
-                }
-                style={{
-                  fontFamily: 'Lato, sans-serif',
-                  fontWeight: 900,
-                }}
-              >
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
+        {/* hero */}
+        <motion.section
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+          className="relative overflow-hidden rounded-[22px] border border-sf-g5 bg-white p-6 shadow-widget lg:col-span-6"
+        >
+          <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-50" />
+          <div className="relative flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+            <div className="rounded-full bg-gradient-to-b from-brand-50 to-brand-100 p-1">
+              <SiteMascot size={132} />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-brand-500">
+                Hello, I&apos;m
+              </p>
+              <h1 className="text-3xl font-semibold tracking-tight text-sf-ink sm:text-4xl">
                 Deepak Dharshan
+              </h1>
+              <p className="mt-1 h-7 text-lg font-medium text-brand-500">
+                <TypingText words={ROLES} />
               </p>
-
-              <p
-                className={
-                  'shadowText text-sm sm:text-base md:text-lg mt-2 text-center transition-all ease-in-out duration-200 text-white'
-                }
-              >
-                Dynamic Business Operations Analyst with expertise in SaaS and a strong foundation in data analysis, project management, and CRM administration. .
+              <p className="mt-2 max-w-md text-sm text-sf-weak">
+                I build scalable CRM processes with GoHighLevel, HubSpot, Zoho and
+                Salesforce, turning manual work into automated workflows, dashboards
+                and integrations that improve customer engagement.
               </p>
-
-              <p
-                className={
-                  'shadowText text-sm sm:text-base md:text-lg mt-2 text-center transition-all ease-in-out duration-200 text-white'
-                }
-              >
-                Passionate about leveraging technical skills in Python, SQL, and Power BI to drive strategic growth and optimize business solutions.
-              </p>
-              <p
-                className={
-                  'shadowText text-sm sm:text-base md:text-lg mt-2 text-center transition-all ease-in-out duration-200 text-white'
-                }
-              >
-                Always in pursuit of creating impactful and purposeful works 🚀
-              </p>
-              <div className="flex justify-center mt-4 space-x-2 sm:space-x-4 md:space-x-4">
-                <a
-                  href="https://github.com/Deepakdd1402"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white transition-transform ease-in-out duration-200 hover:scale-115 sm:hover:scale-130 md:hover:scale-150 hover:text-blue-500"
-                >
-                  <FaGithub size={24} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/deepak-dharshan-278b48199"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white transition-transform ease-in-out duration-200 hover:scale-115 sm:hover:scale-130 md:hover:scale-150 hover:text-blue-500"
-                >
-                  <FaLinkedin size={24} />
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Link href="/experience" className="rounded-lg bg-brand-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-brand-600">
+                  View experience
+                </Link>
+                <a href={`${basePath}/Deepak_Dharshan_CV.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg border border-sf-g5 bg-white px-4 py-2 text-sm font-medium text-brand-500 transition-colors hover:bg-brand-50">
+                  <FiDownload size={14} /> Download CV
                 </a>
               </div>
             </div>
           </div>
-          {/* <div className="max-w-2xl mx-auto h-screen">
-            <p className="text-2xl font-bold mt-4 text-center">About Me</p>
-            <p className="text-lg mt-2 text-center">Blurb</p>
-          </div> */}
-        </main>
+        </motion.section>
+
+        {/* clock + calendar widgets */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-6">
+          <ClockWidget />
+          <CalendarWidget />
+        </div>
+
+        {/* second widget row */}
+        <Widget title="At a glance" icon={FiTrendingUp} className="lg:col-span-4">
+          <div className="grid grid-cols-3 gap-2">
+            <StatCounter value={4} suffix="+" label="Years in CRM" />
+            <StatCounter value={2} label="Organisations" />
+            <StatCounter value={5} label="CRM platforms" />
+          </div>
+        </Widget>
+
+        <Widget title="Now" icon={FiBriefcase} accent="text-sf-success" className="lg:col-span-4">
+          <p className="flex items-center gap-2 text-sm font-semibold text-sf-ink">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-sf-success" />
+            Park Intelli Solutions
+          </p>
+          <p className="text-sm text-sf-weak">CRM Specialist · GoHighLevel · since Nov 2025</p>
+          <p className="mt-2 flex items-center gap-2 text-sm font-semibold text-sf-ink">
+            <span className="h-2 w-2 rounded-full bg-brand-400" />
+            Wildcraft India
+          </p>
+          <p className="text-sm text-sf-weak">Business &amp; CRM Analyst · since Sep 2022</p>
+        </Widget>
+
+        <Widget title="CRM stack" icon={FiLayers} className="lg:col-span-4">
+          <div className="flex flex-wrap gap-1.5">
+            {CRM_PLATFORMS.map((c, i) => (
+              <motion.span
+                key={c}
+                whileHover={{ scale: 1.08, y: -2 }}
+                className={`rounded-full px-2.5 py-1 text-xs font-medium ${
+                  i === 0 ? 'bg-brand-500 text-white' : 'bg-brand-50 text-brand-600'
+                }`}
+              >
+                {c}
+              </motion.span>
+            ))}
+          </div>
+          <Link href="/skills" className="mt-3 inline-block text-xs font-medium text-brand-500 hover:underline">
+            Open the skills explorer →
+          </Link>
+        </Widget>
+
+        <div className="min-w-0 lg:col-span-12">
+          <CareerPath />
+        </div>
       </div>
     </div>
   );

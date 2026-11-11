@@ -1,0 +1,8 @@
+delete: components/EducationCard.tsx
+delete: components/ExperienceCard.tsx
+delete: components/Footer.tsx
+delete: components/Navbar.tsx
+delete: components/NavbarMenu.tsx
+delete: components/ProjectCard.tsx
+delete: components/StarBackground.tsx
+delete: components/TechLogo.tsx
